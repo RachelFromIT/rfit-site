@@ -1,0 +1,18 @@
+
+.typing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#typing-h1 {
+    font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;
+    border-right: 3px solid black;
+    white-space: nowrap;
+    animation: caret .75s step-end infinite;
+}
+
+@keyframes caret {
+    from, to {border-color: transparent;}
+    50% {border-color: black;}
+}
