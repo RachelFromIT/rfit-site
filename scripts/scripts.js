@@ -2,7 +2,7 @@
 const typingh1 = document.getElementById("typing-h1");
 const typingSpan = document.getElementById("typing-span");
 
-window.onload = fadeIn;
+window.onload = fadeIn(typingSpan);
     
 function typeEffect(){
     let msg = "Hello, world!";
@@ -14,19 +14,19 @@ function typeEffect(){
         }
         else {
             clearInterval(typing);
-            setTimeout(fadeOut, 4000);
+            setTimeout(fadeOut(typingSpan), 4000);
         }
     }
         , 150);
 }
 
-function fadeIn() {
+function fadeIn(element) {
     var o = 0;
     var fade = setInterval(function(){
 
         if (o < 1){
             o += 0.1;
-            typingSpan.style.opacity = o;
+            element.style.opacity = o;
         }
 
         else {
@@ -36,19 +36,19 @@ function fadeIn() {
     },150);
 } 
 
-function fadeOut() {
+function fadeOut(element) {
     var fade = setInterval(function(){
-        if (!typingSpan.style.opacity){
-            typingSpan.style.opacity = 1;
+        if (!element.style.opacity){
+            element.style.opacity = 1;
         }
 
-        if (typingSpan.style.opacity > 0){
-            typingSpan.style.opacity -= 0.1;
+        if (element.style.opacity > 0){
+            element.style.opacity -= 0.1;
         }
 
         else {
             clearInterval(fade);
-            typingSpan.style.display = 'none';
+            element.style.display = 'none';
         }
     },150);
 } 
