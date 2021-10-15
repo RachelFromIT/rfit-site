@@ -2,7 +2,9 @@
 const typingh1 = document.getElementById("typing-h1");
 const typingSpan = document.getElementById("typing-span");
 
-window.onload = setTimeout(function () {
+window.onload = fadeIn;
+    
+function typeEffect(){
     let msg = "Hello, world!";
     var i = 0;
     var typing = setInterval(function () {
@@ -16,7 +18,23 @@ window.onload = setTimeout(function () {
         }
     }
         , 150);
-}, 3000);
+}
+
+function fadeIn() {
+    var o = 0;
+    var fade = setInterval(function(){
+
+        if (o < 1){
+            o += 0.1;
+            typingSpan.style.opacity = o;
+        }
+
+        else {
+            clearInterval(fade);
+            setTimeout(typeEffect, 1500);
+        }
+    },150);
+} 
 
 function fadeOut() {
     var fade = setInterval(function(){
