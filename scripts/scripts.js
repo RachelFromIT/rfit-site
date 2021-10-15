@@ -1,29 +1,36 @@
+
 const typingh1 = document.getElementById("typing-h1");
 const typingSpan = document.getElementById("typing-span");
 
-// window.onload = setTimeout(typing, 2000);
-window.onload = typing();
-
-function typing() {
+window.onload = setTimeout(function () {
     let msg = "Hello, world!";
-    for (let i = 0; i < (msg.length); i++) {
-        setTimeout(function () {
+    var i = 0;
+    var typing = setInterval(function () {
+        if (i < msg.length) {
             typingh1.innerHTML += msg.charAt(i);
-        }, 50);
+            i++;
+        }
+        else {
+            clearInterval(typing);
+            setTimeout(fadeOut, 4000);
+        }
     }
-    setTimeout(function () {
-        var fadeOut = setInterval(function () {
-            if (!typingSpan.style.opacity) {
-                typingSpan.style.opacity = 1;
-            }
+        , 150);
+}, 3000);
 
-            if (typingSpan.style.opacity > 0) {
-                typingSpan.style.opacity -= 0.1;
-            }
+function fadeOut() {
+    var fade = setInterval(function(){
+        if (!typingSpan.style.opacity){
+            typingSpan.style.opacity = 1;
+        }
 
-            else {
-                clearInterval(fadeOut);
-            }
-        }, 200);
-    }, 4000);
-}
+        if (typingSpan.style.opacity > 0){
+            typingSpan.style.opacity -= 0.1;
+        }
+
+        else {
+            clearInterval(fade);
+            typingSpan.style.display = 'none';
+        }
+    },150);
+} 
