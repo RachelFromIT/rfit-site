@@ -1,6 +1,7 @@
 
 const typingh1 = document.getElementById("typing-h1");
 const typingSpan = document.getElementById("typing-span");
+const main = document.getElementById("main");
 
 window.onload = fadeIn(typingSpan);
     
@@ -31,7 +32,9 @@ function fadeIn(element) {
 
         else {
             clearInterval(fade);
+            if (element === typingSpan){
             setTimeout(typeEffect, 1500);
+            }
         }
     },150);
 } 
@@ -49,6 +52,8 @@ function fadeOut(element) {
         else {
             clearInterval(fade);
             element.style.display = 'none';
+            main.classList.remove("hidden");
+            fadeIn(main);
         }
     },150);
 } 

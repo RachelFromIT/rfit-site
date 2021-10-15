@@ -5,6 +5,10 @@
     align-items: center;   
 }
 
+.hidden {
+    display: none;
+}
+
 #typing-span{
     position: absolute;
     top: 25%;
